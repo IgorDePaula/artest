@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!-- we import arjs version without NFT but with marker + location based support -->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+</head>
+<body>
+
+<!-- style for the loader -->
+<style>
+    .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+    }
+</style>
+
+<body style="margin : 0px; overflow: hidden;">
+<!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+
+
+<!-- a-frame scene -->
+<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: true;markersAreaEnabled: true; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
+    <a-marker   preset="hiro" >
+        <a-box position='0 0.5 0' scale="0.5 0.5 0.5" color="yellow"></a-box>
+    </a-marker>
+    <a-marker type="pattern" preset="custom" url="marker.patt">
+        <a-entity gltf-model="url(/ARVAframe/uploads_files_1848883_full_sculpture.gltf)"></a-entity>
+        <!--<a-gltf-model position="0 1.25 -1"  src="uploads_files_1848883_full_sculpture.gltf"></a-gltf-model>-->
+    </a-marker>
+    <a-entity camera></a-entity>
+</a-scene>
+</body>
+
+</body>
+</html>
